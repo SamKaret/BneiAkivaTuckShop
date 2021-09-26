@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1051</width>
+    <height>873</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1" colspan="2" alignment="Qt::AlignRight|Qt::AlignBottom">
+     <widget class="QFrame" name="labelFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>651</width>
+        <height>271</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="orderLayout">
+       <item>
+        <widget class="QLabel" name="NameLabel">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Name: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="CurrentFundsLabel">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Current Funds:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="CostLabel">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Cost:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="NewFundsLabel">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>New Funds:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="SubmitOrderButton">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Submit Order</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="2" alignment="Qt::AlignRight|Qt::AlignTop">
+     <widget class="QFrame" name="ButtonFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>118</width>
+        <height>159</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="buttonLayout">
+       <item alignment="Qt::AlignTop">
+        <widget class="QPushButton" name="AddChanichButton">
+         <property name="text">
+          <string>Add Chanich/a</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignTop">
+        <widget class="QPushButton" name="RemoveChanichButton">
+         <property name="text">
+          <string>Remove Chanich/a</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignTop">
+        <widget class="QPushButton" name="AddTuckButton">
+         <property name="text">
+          <string>Add Tuck Item</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignTop">
+        <widget class="QPushButton" name="RemoveTuckButton">
+         <property name="text">
+          <string>Remove Tuck Item</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignTop">
+        <widget class="QPushButton" name="AddFundsButton">
+         <property name="text">
+          <string>Add Funds</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignTop">
+     <widget class="QFrame" name="TuckCounterFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>511</width>
+        <height>531</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QWidget" name="formLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>511</width>
+         <height>531</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="tuckCounterLayout"/>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="0" rowspan="2" alignment="Qt::AlignLeft|Qt::AlignTop">
+     <widget class="QFrame" name="ChanListFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>351</width>
+        <height>811</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLineEdit" name="SearchBoxLineEdit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>749</y>
+         <width>250</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>250</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="SearchButton">
+       <property name="geometry">
+        <rect>
+         <x>266</x>
+         <y>749</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="LastNameSortButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>780</y>
+         <width>151</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Sort by Last Name</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="FirstNameSortButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>780</y>
+         <width>151</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>151</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Sort by First Name</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="ChanList">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>331</width>
+         <height>741</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+   <zorder>TuckCounterFrame</zorder>
+   <zorder>ButtonFrame</zorder>
+   <zorder>ChanListFrame</zorder>
+   <zorder>labelFrame</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1051</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuImport_Excel_Spreadsheet">
+     <property name="title">
+      <string>Import Excel Spreadsheet</string>
+     </property>
+     <addaction name="actionImport_Chans"/>
+     <addaction name="actionImport_Tuck"/>
+    </widget>
+    <addaction name="menuImport_Excel_Spreadsheet"/>
+    <addaction name="actionNew_Machane"/>
+    <addaction name="actionCalculate_Change"/>
+    <addaction name="actionView_Tuck_List"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionHelp_Page"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLoad_Machane">
+   <property name="text">
+    <string>Load Machane</string>
+   </property>
+  </action>
+  <action name="actionCalculate_Change">
+   <property name="text">
+    <string>Calculate Change</string>
+   </property>
+  </action>
+  <action name="actionHelp_Page">
+   <property name="text">
+    <string>Help Page</string>
+   </property>
+  </action>
+  <action name="actionView_Tuck_List">
+   <property name="text">
+    <string>Export Tuck List</string>
+   </property>
+  </action>
+  <action name="actionNew_Machane">
+   <property name="text">
+    <string>New/Load Machane</string>
+   </property>
+  </action>
+  <action name="actionImport_Chans">
+   <property name="text">
+    <string>Import Chans</string>
+   </property>
+  </action>
+  <action name="actionImport_Tuck">
+   <property name="text">
+    <string>Import Tuck</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
