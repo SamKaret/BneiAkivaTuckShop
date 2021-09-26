@@ -115,7 +115,7 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
        
     #Remove chanich button
     def removeChanButtonPressed(self):
-        if self.ChanList.currentRow() != -1:    
+        if self.ChanList.currentRow() != -1 and self.ChanList.count():    
             self.dlg = RemoveChanDlg(self)
             
             if self.dlg.exec():
@@ -131,8 +131,8 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
                     )
                 ]
                 self.ChanList.takeItem(self.ChanList.currentRow())
-        self.changeLabels()
-        self.saveJson()
+                self.changeLabels()
+                self.saveJson()
 
     # Add tuck button
     def addTuckButtonPressed(self):
@@ -148,23 +148,24 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
     #Remove Tuck Button
     def removeTuckButtonPressed(self):
         # print(self.TuckCounterFrame.findChildren(QLabel))
-        self.dlg = RemoveTuckDlg(self)
-        if self.dlg.exec():
-            #delete relevant widgets from tuckCounterLayout
-            widgetList = self.TuckCounterFrame.findChildren(QLabel)
-            for widget in widgetList:
-                if widget.text() == self.dlg.tuckList.currentItem().text():
-                    # print(self.jsonDict['listOfTuck'])
-                    self.jsonDict['listOfTuck'] = [
-                        i for i in self.jsonDict['listOfTuck'] 
-                        if not (i['item'] == widget.text())
-                    ]
-                    self.tuckCounterLayout.removeRow(widgetList.index(widget))
-                    self.saveJson()
+        if self.jsonDict['listOfChans'] != []:
+            self.dlg = RemoveTuckDlg(self)
+            if self.dlg.exec():
+                #delete relevant widgets from tuckCounterLayout
+                widgetList = self.TuckCounterFrame.findChildren(QLabel)
+                for widget in widgetList:
+                    if widget.text() == self.dlg.tuckList.currentItem().text():
+                        # print(self.jsonDict['listOfTuck'])
+                        self.jsonDict['listOfTuck'] = [
+                            i for i in self.jsonDict['listOfTuck'] 
+                            if not (i['item'] == widget.text())
+                        ]
+                        self.tuckCounterLayout.removeRow(widgetList.index(widget))
+                        self.saveJson()
 
     # Add Funds Button
     def addFundsButtonPressed(self):
-        if self.ChanList.currentRow() != -1:    
+        if self.ChanList.currentRow() != -1 and self.ChanList.count():    
             self.dlg = AddFundsDlg(self)
             if self.dlg.exec():
                 currentChan = self.ChanList.currentItem()
@@ -183,7 +184,7 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
 
     #Submit Order Button
     def submitButtonPressed(self):
-        if self.ChanList.currentRow() != -1: 
+        if self.ChanList.currentRow() != -1 and self.ChanList.count(): 
             # Adjust Chan funds
             currentChan = self.ChanList.currentItem()
             currentChan.setData(32, (currentChan.data(32) - self.calcCost()))
@@ -376,7 +377,7 @@ if __name__ == "__main__":
     # If the application is run as a bundle, the PyInstaller bootloader
     # extends the sys module by a flag frozen=True and sets the app 
     # path into variable _MEIPASS'.
-        application_path = sys._MEIPASS
+        application_path = os.path.dirname(sys.executable)
     else:
         application_path = os.path.dirname(os.path.abspath(__file__))
         # print(application_path)

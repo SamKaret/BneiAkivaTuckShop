@@ -7,7 +7,7 @@ TuckShop5781 contains an executable file for distribution which contains all the
 TuckShop5781 also contains a folder called Code which includes the python files which were bundled for the executable,
     as well as some other files that were used during development. 
     TuckShopUI.ui was edited using qtdesigner, and converted to TuckShopUI.py with pyuic5.
-    Running TuckShop.py with python should execute the program.
+    Running TuckShop.py with python should execute the program. Requires python 3.8 or later.
 
     Library Dependencies for running the python distribution:
         PyQt5
