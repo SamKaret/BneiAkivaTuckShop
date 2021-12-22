@@ -224,6 +224,7 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
         currentChan.setData(32, newChan.funds)
         currentChan.setData(33, newChan.firstName)
         currentChan.setData(34, newChan.lastName)
+        self.saveJson()
     
     # Add tuck to list
     def addTuck(self,newTuck):
@@ -231,6 +232,7 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
             'item': newTuck.item,
             'price': newTuck.price
         })
+        self.saveJson()
     
     ## Change Labels
 
@@ -285,16 +287,26 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
             "Excel Files (*.xlsx *.xls *.xlsm *.xlsb, *.odf *.ods *.odt)",
         )
         if importFileName:
-            importFile = pd.read_excel(
-                importFileName
+            try:
+                importFile = pd.read_excel(
+                    importFileName
+                    )
+                for row in importFile.itertuples(index=False, name=None):
+                    newChan = Chanich(
+                        row[0],
+                        row[1],
+                        float(row[2].replace('£', ''))
+                    )
+                    self.addChan(newChan)
+            except:
+                self.msg = QMessageBox()
+                self.msg.setIcon(QMessageBox.Warning)
+                self.msg.setWindowTitle("Import Chans Error")
+                self.msg.setText(
+                    "Check your spreadsheet is in the correct format. This will only read the first sheet and needs column A to be first names, column B to be last names, and column C to be Funds. It won't work otherwise and the columns can't have titles."
                 )
-            for row in importFile.itertuples(index=False, name=None):
-                newChan = Chanich(
-                    row[0],
-                    row[1],
-                    float(row[2].replace('£', ''))
-                )
-                self.addChan(newChan)
+                self.msg.exec()
+
 
     def importTuckClicked(self):
         importFileName, _ = QFileDialog.getOpenFileName(
@@ -303,16 +315,25 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
             "Excel Files (*.xlsx *.xls *.xlsm *.xlsb, *.odf *.ods *.odt)",
         )
         if importFileName:
-            importFile = pd.read_excel(
-                importFileName
+            try:
+                importFile = pd.read_excel(
+                    importFileName
+                    )
+                for row in importFile.itertuples(index=False, name=None):
+                    newTuck = TuckItem(
+                        row[0],
+                        float(row[1].replace('£','')),
+                        self
+                    )
+                    self.addTuck(newTuck)
+            except:
+                self.msg = QMessageBox()
+                self.msg.setIcon(QMessageBox.Warning)
+                self.msg.setWindowTitle("Import Chans Error")
+                self.msg.setText(
+                    "Check your spreadsheet is in the correct format. This will only read the first sheet and needs column A to be first names, column B to be last names, and column C to be Funds. It won't work otherwise and the columns can't have titles."
                 )
-            for row in importFile.itertuples(index=False, name=None):
-                newTuck = TuckItem(
-                    row[0],
-                    float(row[1].replace('£','')),
-                    self
-                )
-                self.addTuck(newTuck)
+                self.msg.exec() 
 
     def newMachaneClicked(self):
         # Now the New/Load Machane option
@@ -361,11 +382,12 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
         )
 
     def helpClicked(self):
+
         self.msg = QMessageBox()
         self.msg.setIcon(QMessageBox.Warning)
-        self.msg.setWindowTitle("HAHAHAHAHAHAHAHAH")
+        self.msg.setWindowTitle("Hello, IT. Have you tried turning it off and on again?")
         self.msg.setText(
-            "BITCH YOU THOUGHT"
+            "Whatsapp me, Sam Karet, at +447510897075, but expect large amounts of sarcasm."
         )
         self.msg.exec()
 
