@@ -331,7 +331,7 @@ class TuckShopWindow(QMainWindow, Ui_MainWindow):
                 self.msg.setIcon(QMessageBox.Warning)
                 self.msg.setWindowTitle("Import Chans Error")
                 self.msg.setText(
-                    "Check your spreadsheet is in the correct format. This will only read the first sheet and needs column A to be first names, column B to be last names, and column C to be Funds. It won't work otherwise and the columns can't have titles."
+                    "Check your spreadsheet is in the correct format. This will only read the first sheet and needs column A to be Name, and column B to be Cost. It won't work otherwise and the columns can't have titles."
                 )
                 self.msg.exec() 
 
